@@ -1,3 +1,7 @@
+<div class="search">
+    Search Employee:<input type="search" [(ngModel)]="searchText" name="employeesearch">
+</div>
+
 <div class="container">
 
     <table class="table table-bordered">
@@ -17,7 +21,7 @@
       
     <tbody>
     
-        <tr *ngFor="let employee of employees?.data">  
+        <tr *ngFor="let employee of employees?.data | searchFilter : searchText ">  
           
    <td>{{employee.id}}</td>
    <td>{{employee.name}}</td>

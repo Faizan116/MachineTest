@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeService } from './employee/employee.service';
 import { PhoneFilterPipe } from './employee/phone-filter.pipe';
+import { SearchFilterPipe } from './employee/search-filter.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,11 +16,12 @@ import { PhoneFilterPipe } from './employee/phone-filter.pipe';
   declarations: [
     AppComponent,
     EmployeeComponent,
-    PhoneFilterPipe
+    PhoneFilterPipe,
+    SearchFilterPipe
     
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule,FormsModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]
