@@ -1,0 +1,40 @@
+<div class="container">  
+     <div [hidden]="submitted">
+            <form #addForm='ngForm' (ngSubmit)="onSubmit()" >
+                    <div class="form-group">  
+Name:<input type="text" class="form-control" name="name" minlength="4" #name1="ngModel" [(ngModel)]="employee.name" required>
+<div [hidden]="name1.valid||name1.pristine" class="alert alert-danger">
+    Name is required and length should be greater than or equal to 4
+</div>
+</div>
+
+<div class="form-group">          
+Phone: <input type="text" class="form-control" name="phone" #phone1="ngModel" pattern="^[0-9]+$"  [(ngModel)]="employee.phone" required>
+<div [hidden]="phone1.valid||phone1.pristine" class="alert alert-danger">
+       Phone is required and should be only digits
+    </div>
+</div>
+<div class="form-group">  
+        
+City: <input type="text" class="form-control" name="city" #city1="ngModel" [(ngModel)]="employee.address.city">
+</div>
+<div class="form-group">  
+        Address1: <input type="text" class="form-control" name="address1" #addresss1="ngModel" [(ngModel)]="employee.address.address_line1">
+    </div>
+        <div class="form-group">  
+                Address2: <input type="text" class="form-control" name="address2" #addresss2="ngModel" [(ngModel)]="employee.address.address_line2">
+            </div>
+                <div class="form-group">  
+                    Postal Code: <input type="text" class="form-control" name="postalCode" #postalCode1="ngModel" [(ngModel)]="employee.address.postal_code">
+                </div>
+                <div class="form-group">  
+                    </div>  
+                    
+                <br/>  
+                <div class="align-center">  
+<button type="submit" class="btn btn-default" id="save" (click)="save()" [routerLink]='["/"]' [disabled]="!addForm.form.valid">Save</button>
+</div> 
+</form>
+</div>  
+
+

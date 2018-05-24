@@ -1,8 +1,12 @@
 <div class="search">
     Search Employee:<input type="search" [(ngModel)]="searchText" name="employeesearch">
 </div>
+<div class="button">
+<button type="button" class="btn" [routerLink]='["/employees/add"]'> ADD NEW </button>
+</div>
 
 <div class="container">
+      
 
     <table class="table table-bordered">
         <thead>
@@ -14,14 +18,14 @@
       <th>Address 1</th>
       <th>Address 2</th>
       <th>Postal Code</th>
-
+      <th>Edit</th>
     </tr>
     </thead>
     
       
     <tbody>
     
-        <tr *ngFor="let employee of employees?.data | searchFilter : searchText ">  
+        <tr *ngFor="let employee of employees | searchFilter : searchText ">  
           
    <td>{{employee.id}}</td>
    <td>{{employee.name}}</td>
@@ -30,11 +34,12 @@
          <td>{{employee.address.address_line1}}</td>
          <td>{{employee.address.address_line2}}</td>
         <td>{{employee.address.postal_code}}</td>
-          
+        <td><a [routerLink]="[employee.id, 'edit']">Edit</a></td>
       </tr>
       </tbody>
 
  
 </table>
 </div>
+
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

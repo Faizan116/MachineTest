@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PhoneFilterPipe implements PipeTransform {
 
   transform(value: string): string {
+    
     if(!value.match("^[0-9]+$")){
         return "NA";
     }

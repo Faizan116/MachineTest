@@ -6,10 +6,13 @@ import { Employee } from './employee';
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css']
+  
 })
 export class EmployeeComponent implements OnInit {
 
-employees: Employee[];
+  
+
+employees: Employee[]=[];
 errorMessage:string;
 
   constructor(private employeeService: EmployeeService) { }
@@ -20,6 +23,7 @@ errorMessage:string;
       error => this.errorMessage = <any>error);
     
   }
+
 
   ngOnInit() {
     this.getEmployees();
